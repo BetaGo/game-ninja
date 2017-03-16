@@ -7,7 +7,9 @@
  */
 
 function drawShuriken(ctx, x, y, size, rotate) {
-  // TODO: rotate有bug
+  // TODO: rotate 有 bug
+
+
   size = size || 40;
   rotate = rotate || 0;
 
@@ -27,9 +29,12 @@ function drawShuriken(ctx, x, y, size, rotate) {
   ctx.rotate(Math.PI * 2 / 360 * rotate);
   ctx.stroke();
   ctx.restore();
+
 }
 
 function drawRect(ctx, x, y, sizeX, sizeY) {
+
+
   sizeX = sizeX || 40;
   sizeY = sizeY || 40;
 
@@ -40,4 +45,5 @@ function drawRect(ctx, x, y, sizeX, sizeY) {
   ctx.lineTo(x - sizeX / 2, y + sizeY / 2);
   ctx.closePath();
   ctx.stroke();
+
 }

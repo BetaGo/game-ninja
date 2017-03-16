@@ -11,6 +11,10 @@ var canvas = document.getElementById('app'),
 canvas.width = Width;
 canvas.height = Height;
 
+
+/**
+ * Enemy 对象
+ */
 var Enemy = function () {
   this.x = Math.random() * Width;
   this.y = 0;
@@ -30,6 +34,11 @@ Enemy.prototype.render = function (ctx) {
   drawRect(ctx, this.x, this.y, this.width,this.height);
 };
 
+
+/**
+ * Weapon 对象
+ */
+
 var Weapon = function (x, y, speedX, speedY) {
   this.x = x;
   this.y = y;
@@ -46,4 +55,30 @@ Weapon.prototype.update = function (dt) {
 
 Weapon.prototype.render = function (ctx) {
   drawShuriken(ctx, this.x, this.y, this.width);
+};
+
+
+/**
+ * Friend 对象
+ */
+
+var Friend = function () {
+  this.x = Math.random() * Width;
+  this.y = 0;
+  this.width = 30;
+  this.height = 30;
+  this.speedX = 0;
+  this.speedY = 70;
+};
+
+Friend.prototype.update = function (dt) {
+  this.x += dt * this.speedX;
+  this.y += dt * this.speedY;
+};
+
+Friend.prototype.render = function (ctx) {
+
+  ctx.strokeStyle = '#654321';
+  drawShuriken(ctx, this.x, this.y, this.width);
+
 };
